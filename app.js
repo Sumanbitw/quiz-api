@@ -14,6 +14,9 @@ app.use(express.urlencoded({
 
 const quizRoute = require("./router/quiz-router")
 const categoryRoute = require("./router/category-router")
+const loginRoute = require("./router/login-router")
+const signupRoute = require("./router/signup-router")
+const scoreRouter = require("./router/score-router")
 
 app.get("/",(req,res) => {
     res.send("Quiz backeend")
@@ -25,5 +28,8 @@ mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser:true, useUnifiedTopo
 
 app.use("/quiz", quizRoute)
 app.use("/category", categoryRoute)
+app.use("/login", loginRoute)
+app.use("/signup", signupRoute)
+app.use("/score", scoreRouter)
 
 app.listen(port)
